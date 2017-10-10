@@ -1,0 +1,46 @@
+[
+  {
+    "question": "Which toy best matches how you like to play?",
+    "type": "one",
+    "options": [
+      {
+        "text": "Legos",
+        "values": [ 0, 0, 1, 0, 0 ]
+      },
+      {
+        "text": "Puzzles",
+        "values": [ 1, 1, 0, 1, 1 ]
+      },
+      {
+        "text": "Remote Control Cars",
+        "values": [ 1, 1, 0, 0, 0 ]
+      },
+      {
+        "text": "Board Games",
+        "values": [ 0, 0, 0, 1, 1 ]
+      }
+    ]
+  },
+  {
+    "question": "What's your favorite car in Rocket League?",
+    "type": "multiple",
+    "options": [
+      {
+        "text": "Octane",
+        "values": [ 0, 0, 1, 0, 0 ]
+      },
+      {
+        "text": "Dominus",
+        "values": [ 1, 1, 0, 1, 1 ]
+      },
+      {
+        "text": "Batmobile",
+        "values": [ 1, 1, 0, 0, 0 ]
+      },
+      {
+        "text": "Breakout",
+        "values": [ 0, 0, 0, 1, 1 ]
+      }
+    ]
+  }
+]
