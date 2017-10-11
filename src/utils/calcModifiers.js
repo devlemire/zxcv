@@ -6,11 +6,12 @@ export default function calculateCategories( answers) {
   let formattedModifiers = [];
   var i;
 
-  for( i = 0; i < CATEGORY_LABELS.length; i++ ) {
-    formattedModifiers.push({ value: 0, label: CATEGORY_LABELS[i] });
-  }
-
   if ( answers.length > 0 ) {
+    
+    for( i = 0; i < CATEGORY_LABELS.length; i++ ) {
+      formattedModifiers.push({ value: 0, label: CATEGORY_LABELS[i] });
+    }
+
     for( i = 0; i < answers.length; i++ ) {
       if ( Array.isArray( answers[i] ) ) {
         for( var j = 0; j < answers[i].length; j++ ) {
