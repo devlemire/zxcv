@@ -1,7 +1,7 @@
 import questions from './questions.json';
 import { CATEGORY_LABELS } from '../ducks/reducer';
 
-export default function calculateCategories( answers) {
+export default function calculateCategories( answers ) {
   let modifiers = [];
   let formattedModifiers = [];
   var i, j;

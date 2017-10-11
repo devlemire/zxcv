@@ -11,7 +11,6 @@ class Submit extends Component {
     const { answers, calculateModifiers } = this.props;
     if ( answers.length > 0 ) {
       const modifiers = calcModifiers( answers );
-      console.log( 'Returned modifiers from calcModifiers:', modifiers );
       calculateModifiers(modifiers);
     }
   }

@@ -28,12 +28,12 @@ export default class Multiple extends Component {
       <div>
         {
           options.map( ( option, i ) => (
-            <div key={ i }>
+            <div key={ `question-${ currentQuestion }-${ i }` }>
               <input type="checkbox"
                      onChange={ ( e ) => this.updateAnswers( e.target.checked, currentQuestion, i ) } 
-                     id={ i } 
+                     id={ `label-${ currentQuestion }-${ i }` } 
                      defaultChecked={ currentAnswers ? currentAnswers.indexOf( i ) !== -1 : false } />
-              <label htmlFor={ i }>{ option.text }</label>
+              <label htmlFor={ `label-${ currentQuestion }-${ i }` }>{ option.text }</label>
             </div>
           ))
         }

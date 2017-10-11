@@ -35,7 +35,6 @@ export default function reducer( state = initialState, action ) {
         newState.categories[i] = payload.modifiers[i];
       }
 
-      console.log('Updated Categories:', newState);
       return newState;
 
     default:
