@@ -9,7 +9,6 @@ import Navigation from '../Navigation/Navigation';
 
 class Question extends Component {
   componentWillReceiveProps( nextProps ) {
-    console.log('NEW PROPS:', nextProps);
     this.setState({ 
       question: questions[ nextProps.match.params.index ],
       currentQuestion: parseInt( nextProps.match.params.index, 10 ),
@@ -29,9 +28,6 @@ class Question extends Component {
   render() {
     const { selectAnswer } = this.props;
     const { question, currentQuestion, currentAnswers } = this.state;
-
-    console.log('Initial Props', this.props);
-    console.log('State', this.state);
 
     return (
       <div>
