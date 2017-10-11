@@ -37,7 +37,7 @@ class Submit extends Component {
 
     if ( email === '' ) return;
 
-    axios.post( `${api.base + api.emails}`, {
+    axios.post( `${api.base + api.submissions}`, {
       email,
       web:        categories[0].value,
       ios:        categories[1].value,

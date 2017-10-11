@@ -21,7 +21,7 @@ export default class Download extends Component {
     return (
       <div className="Download">
         <input onChange={ ( e ) => this.handleChange( e.target.value ) } />
-        <a href={ `${ api.base + api.emails }?password=${ this.state.password }`} 
+        <a href={ `${ api.base + api.submissions }?password=${ this.state.password }`} 
            download="emails.csv">
           Download Emails
         </a>

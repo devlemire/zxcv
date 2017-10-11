@@ -1,5 +1,5 @@
 let api = {
-  emails: '/api/emails'
+  submissions: '/api/submissions'
 };
 
 if ( process.env.NODE_ENV === 'development' ) {

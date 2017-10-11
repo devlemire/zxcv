@@ -19,8 +19,8 @@ massive({
   app.set('db', db);
 }).catch( err => console.log('Error connecting to database:', err) );
 
-// Email Routes
-app.use('/api/emails', require('./routes/submission_router'));
+// Submission Routes
+app.use('/api/submissions', require('./routes/submission_router'));
 
 // Serving front-end files
 app.use( express.static( `${__dirname}/../build` ) );
