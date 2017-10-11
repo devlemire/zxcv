@@ -2,10 +2,12 @@ const express = require('express');
 const cors = require('cors');
 const massive = require('massive');
 const path = require('path');
+const bodyParser = require('body-parser');
 const config = require('./config.js');
 
 const app = module.exports = express();
 
+app.use( bodyParser.json() );
 app.use( cors() );
 massive({
   host: config.db.host,
@@ -18,7 +20,7 @@ massive({
 }).catch( err => console.log('Error connecting to database:', err) );
 
 // Email Routes
-app.use('/api/emails', require('./routes/email_router'));
+app.use('/api/emails', require('./routes/submission_router'));
 
 // Serving front-end files
 app.use( express.static( `${__dirname}/../build` ) );

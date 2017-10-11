@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+
+import api from '../../utils/api';
 
 export default class Download extends Component {
   constructor() {
@@ -19,9 +20,8 @@ export default class Download extends Component {
   render() {
     return (
       <div className="Download">
-        Hello
         <input onChange={ ( e ) => this.handleChange( e.target.value ) } />
-        <a href={`http://localhost:3000/api/emails?password=${ this.state.password }`} 
+        <a href={ `${ api.base + api.emails }?password=${ this.state.password }`} 
            download="emails.csv">
           Download Emails
         </a>

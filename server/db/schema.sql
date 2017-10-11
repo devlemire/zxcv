@@ -3,8 +3,13 @@ CREATE DATABASE zxcv;
 
 -- Connect to the DATABASE: \c zxcv;
 
--- Email Table
-CREATE TABLE emails (
+-- Submissions Table
+CREATE TABLE submissions (
   id SERIAL PRIMARY KEY,
-  email TEXT NOT NULL UNIQUE
+  email TEXT NOT NULL UNIQUE,
+  web SMALLINT,
+  ios SMALLINT,
+  uiux SMALLINT,
+  qa SMALLINT,
+  salesforce SMALLINT
 );
