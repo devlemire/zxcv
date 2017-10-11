@@ -10,7 +10,7 @@ module.exports = {
     if ( req.query.email ) {
       db.storeEmail({ email: req.query.email })
       .then( results => res.status(200).send('Email address has been stored.') )
-      .catch( err => res.status(409).send({ error: err }) );
+      .catch( err => res.status(409).send( err ) );
     } else {
       res.status(409).send({ error: 'Need email in the request query.' });
     }
