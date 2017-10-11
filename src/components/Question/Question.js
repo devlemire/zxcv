@@ -56,7 +56,6 @@ class Question extends Component {
 }
 
 function mapStateToProps( state ) {
-  console.log('mapStateToProps:', state);
   return {
     answers: state.answers
   };

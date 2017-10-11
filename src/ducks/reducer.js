@@ -1,13 +1,16 @@
+export const CATEGORY_LABELS = [ 'web', 'ios', 'uiux', 'qa', 'salesforce' ];
+
 const initialState = {
   answers: [],
   categories: [
-    { value: 0, label: 'Web' },
-    { value: 0, label: 'iOS' },
-    { value: 0, label: 'UI/UX' },
-    { value: 0, label: 'QA' },
-    { value: 0, label: 'Salesforce' }
+    { value: 0, label: CATEGORY_LABELS[0] },
+    { value: 0, label: CATEGORY_LABELS[1] },
+    { value: 0, label: CATEGORY_LABELS[2] },
+    { value: 0, label: CATEGORY_LABELS[3] },
+    { value: 0, label: CATEGORY_LABELS[4] }
   ]
 };
+
 
 export const SELECT_ANSWER = 'SELECT_ANSWER';
 export const CALCULATE_MODIFIERS = "CALCULATE_MODIFIERS";
@@ -28,8 +31,8 @@ export default function reducer( state = initialState, action ) {
       newState = Object.assign({}, state);
       newState.categories = [ ...newState.categories ];
       
-      for( var i = 0; i < newState.categories.length; i++ ) {
-        newState.categories[i].value = payload.modifiers[i];
+      for( var i = 0; i < payload.modifiers.length; i++ ) {
+        newState.categories[i] = payload.modifiers[i];
       }
 
       console.log('Updated Categories:', newState);

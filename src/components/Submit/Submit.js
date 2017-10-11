@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { calculateModifiers } from '../../ducks/reducer';
+import { calculateModifiers, CATEGORY_LABELS } from '../../ducks/reducer';
 
 import axios from 'axios';
 import api from '../../utils/api';
@@ -11,8 +11,8 @@ class Submit extends Component {
     const { answers, calculateModifiers } = this.props;
     if ( answers.length > 0 ) {
       const modifiers = calcModifiers( answers );
+      console.log( 'Returned modifiers from calcModifiers:', modifiers );
       calculateModifiers(modifiers);
-      console.log( modifiers );
     }
   }
 
@@ -37,14 +37,13 @@ class Submit extends Component {
 
     if ( email === '' ) return;
 
-    axios.post( `${api.base + api.submissions}`, {
-      email,
-      web:        categories[0].value,
-      ios:        categories[1].value,
-      uiux:       categories[2].value,
-      qa:         categories[3].value,
-      salesforce: categories[4].value
-    }).then( () => history.push('/results') )
+    let requestBody = { email };
+    for( var i = 0; i < categories.length; i++) {
+      requestBody[ categories[i].label ] = categories[i].value;
+    }
+
+    axios.post( `${api.base + api.submissions}`, requestBody )
+      .then( () => history.push('/results') )
       .catch( err => {
         // Unparse the error.
         const errObj = Object.assign({}, err);

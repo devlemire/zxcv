@@ -5,8 +5,6 @@ export default class Multiple extends Component {
     const { select, currentAnswers } = this.props;
     let newAnswerArray = [];
     
-    console.log('Current Answers:', currentAnswers);
-
     if ( checked ) {
       // Add to answers
       if ( currentAnswers ) {

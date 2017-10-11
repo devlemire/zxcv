@@ -3,8 +3,7 @@ import React, { Component } from 'react';
 export default class Navigation extends Component {
   render() {
     const { history, lastQuestion, currentQuestion } = this.props;
-    console.log( currentQuestion, lastQuestion );
-
+    
     return (
       <div>
         {
