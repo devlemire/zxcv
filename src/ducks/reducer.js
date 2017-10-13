@@ -1,16 +1,17 @@
-export const CATEGORY_LABELS = [ 'web', 'ios', 'uiux', 'qa', 'salesforce' ];
+import questions from '../utils/questions.json';
+
+export const CATEGORIES = [ 
+  { value: 0, label: 'web' }, 
+  { value: 0, label: 'ios' }, 
+  { value: 0, label: 'uiux' }, 
+  { value: 0, label: 'qa' }, 
+  { value: 0, label: 'salesforce' } 
+];
 
 const initialState = {
   answers: [],
-  categories: [
-    { value: 0, label: CATEGORY_LABELS[0] },
-    { value: 0, label: CATEGORY_LABELS[1] },
-    { value: 0, label: CATEGORY_LABELS[2] },
-    { value: 0, label: CATEGORY_LABELS[3] },
-    { value: 0, label: CATEGORY_LABELS[4] }
-  ]
+  categories: CATEGORIES
 };
-
 
 export const SELECT_ANSWER = 'SELECT_ANSWER';
 export const CALCULATE_MODIFIERS = "CALCULATE_MODIFIERS";
@@ -24,17 +25,29 @@ export default function reducer( state = initialState, action ) {
     case SELECT_ANSWER: 
       newState = Object.assign({}, state);
       newState.answers = [ ...newState.answers ];
-      newState.answers[ payload.questionNumber ] = payload.answer;
+      newState.answers[ payload.questionNumber ] = { selected: payload.selected, modifiers: [] };
+
+      payload.selected.forEach( selected => {
+        const modifiers = questions[ payload.questionNumber ].options[ selected ].values;
+        newState.answers[ payload.questionNumber ].modifiers.push( modifiers );
+      });
+
       return newState;
 
     case CALCULATE_MODIFIERS:
       newState = Object.assign({}, state);
       newState.categories = [ ...newState.categories ];
-      
-      for( var i = 0; i < payload.modifiers.length; i++ ) {
-        newState.categories[i] = payload.modifiers[i];
-      }
 
+      let { answers } = payload;
+
+      answers.forEach( answer => {
+        answer.modifiers.forEach( modifier => {
+          modifier.forEach( ( value, index ) => {
+            newState.categories[index].value += value;
+          });
+        });
+      });
+      
       return newState;
 
     default:
@@ -42,16 +55,16 @@ export default function reducer( state = initialState, action ) {
   }
 }
 
-export function selectAnswer( questionNumber, answer ) {
+export function selectAnswer( questionNumber, selected ) {
   return {
     type: SELECT_ANSWER,
-    payload: { questionNumber, answer }
+    payload: { questionNumber, selected }
   };
 }
 
-export function calculateModifiers( modifiers ) {
+export function calculateModifiers( answers ) {
   return {
     type: CALCULATE_MODIFIERS,
-    payload: { modifiers }
+    payload: { answers }
   };
 }

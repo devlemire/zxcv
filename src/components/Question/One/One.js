@@ -7,7 +7,7 @@ export default class One extends Component {
     let radioBtn = document.getElementById(`input-${i}`);
     radioBtn.checked = true;
 
-    select( currentQuestion, i );
+    select( currentQuestion, [ i ] );
   }
 
   render() {
@@ -22,7 +22,7 @@ export default class One extends Component {
               <input id={ `input-${i}` }
                      type="radio"
                      name="option"
-                     defaultChecked={ currentAnswers === i } />
+                     defaultChecked={ currentAnswers[0] === i } />
               <label htmlFor="option">{ option.text }</label>
             </div>
           ))

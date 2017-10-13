@@ -3,22 +3,22 @@ import React, { Component } from 'react';
 export default class Multiple extends Component {
   updateAnswers( checked, currentQuestion, optionIndex ) {
     const { select, currentAnswers } = this.props;
-    let newAnswerArray = [];
+    let selected = [];
     
     if ( checked ) {
       // Add to answers
       if ( currentAnswers ) {
-        newAnswerArray = [ ...currentAnswers, optionIndex ];
+        selected = [ ...currentAnswers, optionIndex ];
       } else {
-        newAnswerArray = [ optionIndex ];
+        selected = [ optionIndex ];
       }
     } else {
       // Remove from answers
       const answerIndex = currentAnswers.findIndex( answer => answer === optionIndex );
-      newAnswerArray = [ ...currentAnswers.slice( 0, answerIndex ), ...currentAnswers.slice( answerIndex + 1, currentAnswers.length ) ];
+      selected = [ ...currentAnswers.slice( 0, answerIndex ), ...currentAnswers.slice( answerIndex + 1, currentAnswers.length ) ];
     }
     
-    select( currentQuestion, newAnswerArray );
+    select( currentQuestion, selected );
   }
 
   render() {

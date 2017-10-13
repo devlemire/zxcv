@@ -9,19 +9,25 @@ import Navigation from '../Navigation/Navigation';
 
 class Question extends Component {
   componentWillReceiveProps( nextProps ) {
+    const { answers } = nextProps;
+    const { index } = nextProps.match.params;
+
     this.setState({ 
-      question: questions[ nextProps.match.params.index ],
-      currentQuestion: parseInt( nextProps.match.params.index, 10 ),
-      currentAnswers: nextProps.answers[ nextProps.match.params.index ] || []
+      question: questions[ index ],
+      currentQuestion: parseInt( index, 10 ),
+      currentAnswers: answers[ index ] ? answers[ index ].selected : []
     });
   }
 
   constructor( props ) {
     super( props );
-    this.state = {
-      question: questions[ this.props.match.params.index ],
-      currentQuestion: parseInt( this.props.match.params.index, 10 ),
-      currentAnswers: this.props.answers[ this.props.match.params.index ] || []
+    const { answers } = this.props;
+    const { index } = this.props.match.params;
+
+    this.state = { 
+      question: questions[ index ],
+      currentQuestion: parseInt( index, 10 ),
+      currentAnswers: answers[ index ] ? answers[ index ].selected : []
     };
   }
 

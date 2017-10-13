@@ -42,49 +42,5 @@
         "values": [ 0, 0, 0, 1, 1 ]
       }
     ]
-  },
-  {
-    "question": "What's your favorite car in Rocket League?",
-    "type": "multiple",
-    "options": [
-      {
-        "text": "E",
-        "values": [ 0, 0, 1, 0, 0 ]
-      },
-      {
-        "text": "F",
-        "values": [ 1, 1, 0, 1, 1 ]
-      },
-      {
-        "text": "G",
-        "values": [ 1, 1, 0, 0, 0 ]
-      },
-      {
-        "text": "H",
-        "values": [ 0, 0, 0, 1, 1 ]
-      }
-    ]
-  },
-  {
-    "question": "What's your favorite car in Rocket League?",
-    "type": "multiple",
-    "options": [
-      {
-        "text": "A",
-        "values": [ 0, 0, 1, 0, 0 ]
-      },
-      {
-        "text": "B",
-        "values": [ 1, 1, 0, 1, 1 ]
-      },
-      {
-        "text": "C",
-        "values": [ 1, 1, 0, 0, 0 ]
-      },
-      {
-        "text": "D",
-        "values": [ 0, 0, 0, 1, 1 ]
-      }
-    ]
   }
 ]

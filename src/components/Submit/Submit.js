@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { calculateModifiers, CATEGORY_LABELS } from '../../ducks/reducer';
+import { calculateModifiers } from '../../ducks/reducer';
 
 import axios from 'axios';
 import api from '../../utils/api';
-import calcModifiers from '../../utils/calcModifiers';
 
 class Submit extends Component {
   componentDidMount() {
     const { answers, calculateModifiers } = this.props;
     if ( answers.length > 0 ) {
-      const modifiers = calcModifiers( answers );
-      calculateModifiers(modifiers);
+      calculateModifiers( answers );
     }
   }
 
