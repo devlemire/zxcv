@@ -12,7 +12,7 @@ export default class One extends Component {
 
     return (
       <div>
-        <RadioButtonGroup name="answers" defaultChecked={ currentAnswers[0] }>
+        <RadioButtonGroup name="answers" defaultSelected={ currentAnswers[0] }>
         {
           options.map( (option, i) => (
             <RadioButton key={ i }
@@ -20,6 +20,7 @@ export default class One extends Component {
                          value={ i }
                          label={ option.text }
                          iconStyle={ { fill: '#3fbaf9' } }
+                         labelStyle={ { fontFamily: "'Merriweather Sans', sans-serif" } }
                          style={ { marginBottom: 16 } }
             />
           ))

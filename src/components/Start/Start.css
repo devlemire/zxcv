@@ -13,15 +13,8 @@
   position: absolute;
   top: 32px;
   right: 120px;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 18px;
-  font-weight: 800;
-  border: none;
-  border-radius: 2px;
-  padding: 8px 16px;
   background-color: #FFF;
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.23);
-  cursor: pointer;
+  color: black;
 }
 
 .Start__adminLink:hover {

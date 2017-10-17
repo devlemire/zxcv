@@ -26,3 +26,21 @@ ul {
   top: 32px;
   left: 118px;
 }
+
+button {
+  border: none;
+  border-radius: 2px;
+  background-color: #3fbaf9;
+  color: #FFF;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  padding: 8px 16px;
+  cursor: pointer;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.23);
+  outline: none;
+}
+
+button:hover {
+  color: black;
+}
