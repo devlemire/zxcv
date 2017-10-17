@@ -1,0 +1,75 @@
+.Start__parent {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+  padding: 32px 120px;
+  position: relative;
+}
+
+.Start__adminLink {
+  position: absolute;
+  top: 32px;
+  right: 120px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  border: none;
+  border-radius: 2px;
+  padding: 8px 16px;
+  background-color: #FFF;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.23);
+  cursor: pointer;
+}
+
+.Start__adminLink:hover {
+  color: #3fbaf9;
+}
+
+.Start__content {
+  width: 100%;
+  height: 100%;
+  margin-top: 81px;
+}
+
+.Start__content h1 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  margin-top: 0px;
+  margin-bottom: 13px;
+}
+
+.Start__content p {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 18px;
+  line-height: 1.44;
+  margin-bottom: 40px;
+}
+
+.Start__btnContainer {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.Start__btnContainer button {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  border: none;
+  border-radius: 2px;
+  color: #FFF;
+  background-color: #3fbaf9;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.23);
+  padding: 18px 35px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.Start__btnContainer button:hover {
+  color: black;
+}

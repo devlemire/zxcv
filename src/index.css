@@ -1,11 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather+Sans:400,800|Open+Sans:400,800');
+/* 
+font-family: 'Open Sans', sans-serif;
+font-family: 'Merriweather Sans', sans-serif; 
+*/
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  min-width: 100%;
+  min-height: 100vh;
+  background-color: #3fbaf9;
 }
 
 ul {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+
+.logo {
+  width: 259px;
+  position: absolute;
+  top: 32px;
+  left: 118px;
 }

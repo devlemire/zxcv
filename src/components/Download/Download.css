@@ -1,0 +1,29 @@
+.Download__parent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  padding: 32px 118px;
+  box-sizing: border-box;
+}
+
+.Download__password {
+  font-size: 48px;
+  font-weight: 800;
+  font-family: 'Open Sans', sans-serif;
+  margin-bottom: 20px;
+}
+
+.Download__link {
+  font-size: 48px;
+  font-weight: 800;
+  font-family: 'Open Sans', sans-serif;
+  text-decoration: none;
+  color: #FFF;
+  background-color: #3fbaf9;
+  padding: 18px 35px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.23);
+}
