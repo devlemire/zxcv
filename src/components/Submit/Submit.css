@@ -1,0 +1,41 @@
+.Submit__parent {
+  width: 100%;
+  height: 100%;
+  padding: 32px 120px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.Submit__content {
+  margin-top: 81px;
+}
+
+.Submit__content p {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 18px;
+  line-height: 1.44;
+  margin-bottom: 40px;
+}
+
+.Submit__input-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.Submit__input-container input {
+  width: 400px;
+  margin-right: 19px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+}
+
+.Submit__error-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  color: red;
+}

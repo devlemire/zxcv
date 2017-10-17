@@ -1,9 +1,19 @@
 import React, { Component } from 'react';
+import Checkbox from 'material-ui/Checkbox';
 
 export default class Multiple extends Component {
+  constructor() {
+    super();
+    this.state = {};
+
+    this.updateAnswers = this.updateAnswers.bind( this );
+  }
+
   updateAnswers( checked, currentQuestion, optionIndex ) {
     const { select, currentAnswers } = this.props;
     let selected = [];
+
+    console.log( checked );
     
     if ( checked ) {
       // Add to answers
@@ -28,13 +38,14 @@ export default class Multiple extends Component {
       <div>
         {
           options.map( ( option, i ) => (
-            <div key={ `question-${ currentQuestion }-${ i }` }>
-              <input type="checkbox"
-                     onChange={ ( e ) => this.updateAnswers( e.target.checked, currentQuestion, i ) } 
-                     id={ `label-${ currentQuestion }-${ i }` } 
-                     defaultChecked={ currentAnswers ? currentAnswers.indexOf( i ) !== -1 : false } />
-              <label htmlFor={ `label-${ currentQuestion }-${ i }` }>{ option.text }</label>
-            </div>
+            <Checkbox label={ option.text }
+                      checked={ currentAnswers ? currentAnswers.indexOf( i ) !== -1 : false }
+                      onCheck={ ( e, checked ) => this.updateAnswers( checked, currentQuestion, i ) }
+                      key={ `question-checkbox-${ i }` }
+                      iconStyle={ { fill: '#3fbaf9' } }
+                      labelStyle={ { fontFamily: "'Merriweather Sans', sans-serif" } }
+                      style={ { marginBottom: 16 } }
+            />
           ))
         }
       </div>

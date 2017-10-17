@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { calculateModifiers } from '../../ducks/reducer';
-
 import axios from 'axios';
 import api from '../../utils/api';
+import logo from '../../assets/logo.png';
+
+import './Submit.css';
 
 class Submit extends Component {
   componentDidMount() {
@@ -48,7 +50,7 @@ class Submit extends Component {
 
         // Email Address has already been submitted
         if ( errMsg.code === '23505' ) {
-          this.setState({ error: 'Email address already used.' });
+          this.setState({ error: 'Email address already used. Please use a different email.' });
         }
     });
   }
@@ -57,19 +59,27 @@ class Submit extends Component {
     const { error } = this.state;
 
     return (
-      <div>
-        Submit Email
-        <input value={ this.state.email } onChange={ ( e ) => this.handleChange( e.target.value ) } />
-        <button onClick={ this.submit }>Submit</button>
-        <br />
-        <br />
-        {
-          error
-          ?
-            <span>{ error }</span>
-          :
-            null
-        }
+      <div className="Submit__parent">
+        <img className="logo" src={ logo } alt="company logo" />
+
+        <div className="Submit__content">
+          <p>Thanks for taking the time to complete our survey! Please enter in your email address below so we can stay in touch and submit your survey!</p>
+
+          <div className="Submit__input-container">
+            <input value={ this.state.email } onChange={ ( e ) => this.handleChange( e.target.value ) } />
+            <button onClick={ this.submit }>Submit</button>
+          </div>
+
+          <div className="Submit__error-container">
+            {
+              error
+              ?
+                <span>{ error }</span>
+              :
+                null
+            }
+          </div>
+        </div>
       </div>
     )
   }
