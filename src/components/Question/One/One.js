@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
+import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
 
 export default class One extends Component {
   handleSelect( currentQuestion, i ) {
     const { select } = this.props;
-
-    let radioBtn = document.getElementById(`input-${i}`);
-    radioBtn.checked = true;
-
     select( currentQuestion, [ i ] );
   }
 
@@ -15,19 +12,19 @@ export default class One extends Component {
 
     return (
       <div>
-        <ul>
+        <RadioButtonGroup name="answers" defaultChecked={ currentAnswers[0] }>
         {
           options.map( (option, i) => (
-            <div key={ i } onClick={ () => this.handleSelect( currentQuestion, i ) }>
-              <input id={ `input-${i}` }
-                     type="radio"
-                     name="option"
-                     defaultChecked={ currentAnswers[0] === i } />
-              <label htmlFor="option">{ option.text }</label>
-            </div>
+            <RadioButton key={ i }
+                         onClick={ () => this.handleSelect( currentQuestion, i ) }
+                         value={ i }
+                         label={ option.text }
+                         iconStyle={ { fill: '#3fbaf9' } }
+                         style={ { marginBottom: 16 } }
+            />
           ))
         }
-        </ul>
+        </RadioButtonGroup>
       </div>
     )
   }

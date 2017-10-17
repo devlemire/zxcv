@@ -1,0 +1,26 @@
+.Question__parent {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  padding: 32px 120px;
+  box-sizing: border-box;
+}
+
+.Question__content {
+  margin-top: 81px;
+}
+
+.Question__content h1 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  margin-top: 0px;
+  margin-bottom: 13px;
+}
+
+.Question__content p {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 18px;
+  line-height: 1.44;
+  margin-bottom: 16px;
+}
