@@ -1,15 +1,31 @@
 import questions from '../utils/questions.json';
 
-export const CATEGORIES = [ 
-  { value: 0, label: 'web', display: 'Web Dev' }, 
-  { value: 0, label: 'ios', display: 'iOS Dev' }, 
-  { value: 0, label: 'uiux', display: 'UX Design' }, 
-  { value: 0, label: 'qa', display: 'QA' }, 
-  { value: 0, label: 'salesforce', display: 'Salesforce' } 
-];
+export const CATEGORIES = {
+  "web": {
+    value: 0,
+    display: 'Web Dev'
+  },
+  "ios": {
+    value: 0,
+    display: 'iOS Dev'
+  },
+  "uiux": {
+    value: 0,
+    display: 'UX Design'
+  },
+  "qa": {
+    value: 0,
+    display: 'Quality Assurance'
+  },
+  "salesforce": {
+    value: 0,
+    display: 'Salesforce'
+  }
+};
 
 const initialState = {
-  answers: [],
+  answers: [ { selected: [ 3 ] }, { selected: [ 2, 3] } ],
+
   categories: CATEGORIES
 };
 
@@ -29,7 +45,7 @@ export default function reducer( state = initialState, action ) {
       newState.answers[ payload.questionNumber ] = { selected: payload.selected, modifiers: [] };
 
       payload.selected.forEach( selected => {
-        const modifiers = questions[ payload.questionNumber ].options[ selected ].values;
+        const modifiers = questions[ payload.questionNumber ].options[ selected ];
         newState.answers[ payload.questionNumber ].modifiers.push( modifiers );
       });
 
@@ -42,10 +58,12 @@ export default function reducer( state = initialState, action ) {
       let { answers } = payload;
 
       answers.forEach( answer => {
-        answer.modifiers.forEach( modifier => {
-          modifier.forEach( ( value, index ) => {
-            newState.categories[index].value += value;
-          });
+        answer.modifiers.forEach( ( modifier, index ) => {
+          newState.categories.web.value += modifier.web;
+          newState.categories.ios.value += modifier.ios;
+          newState.categories.uiux.value += modifier.uiux;
+          newState.categories.qa.value += modifier.qa;
+          newState.categories.salesforce += modifier.salesforce;
         });
       });
       

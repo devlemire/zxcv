@@ -5,19 +5,35 @@
     "options": [
       {
         "text": "Legos",
-        "values": [ 0, 0, 1, 0, 0 ]
+        "web": 0,
+        "ios": 0,
+        "uiux": 1,
+        "qa": 0,
+        "salesforce": 0
       },
       {
         "text": "Puzzles",
-        "values": [ 1, 1, 0, 1, 1 ]
+        "web": 1,
+        "ios": 1,
+        "uiux": 0,
+        "qa": 1,
+        "salesforce": 1
       },
       {
         "text": "Remote Control Cars",
-        "values": [ 1, 1, 0, 0, 0 ]
+        "web": 1,
+        "ios": 1,
+        "uiux": 0,
+        "qa": 0,
+        "salesforce": 0
       },
       {
         "text": "Board Games",
-        "values": [ 0, 0, 0, 1, 1 ]
+        "web": 0,
+        "ios": 0,
+        "uiux": 0,
+        "qa": 1,
+        "salesforce": 1
       }
     ]
   },
