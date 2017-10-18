@@ -5,6 +5,11 @@ import logo from '../../assets/logo.png';
 import './Start.css';
 
 export default class Start extends Component {
+  componentDidMount() {
+    let appChildStyles = document.getElementById('App__child').style;
+    appChildStyles.width = '976px';
+  }
+
   render() {
     return (
       <div className="Start__parent">

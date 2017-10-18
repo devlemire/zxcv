@@ -1,11 +1,11 @@
 import questions from '../utils/questions.json';
 
 export const CATEGORIES = [ 
-  { value: 0, label: 'web' }, 
-  { value: 0, label: 'ios' }, 
-  { value: 0, label: 'uiux' }, 
-  { value: 0, label: 'qa' }, 
-  { value: 0, label: 'salesforce' } 
+  { value: 0, label: 'web', display: 'Web Dev' }, 
+  { value: 0, label: 'ios', display: 'iOS Dev' }, 
+  { value: 0, label: 'uiux', display: 'UX Design' }, 
+  { value: 0, label: 'qa', display: 'QA' }, 
+  { value: 0, label: 'salesforce', display: 'Salesforce' } 
 ];
 
 const initialState = {
@@ -15,6 +15,7 @@ const initialState = {
 
 export const SELECT_ANSWER = 'SELECT_ANSWER';
 export const CALCULATE_MODIFIERS = "CALCULATE_MODIFIERS";
+export const RESET = "RESET";
 
 export default function reducer( state = initialState, action ) {
   const { type, payload } = action;
@@ -50,6 +51,9 @@ export default function reducer( state = initialState, action ) {
       
       return newState;
 
+    case RESET:
+      return Object.assign({}, initialState);
+
     default:
       return state;
   }
@@ -66,5 +70,12 @@ export function calculateModifiers( answers ) {
   return {
     type: CALCULATE_MODIFIERS,
     payload: { answers }
+  };
+}
+
+export function reset() {
+  return {
+    type: RESET,
+    payload: null
   };
 }

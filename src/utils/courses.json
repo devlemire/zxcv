@@ -1,0 +1,17 @@
+{
+  "web": {
+    "title": "Web Developer"
+  },
+  "ios": {
+    "title": "iOS Developer"
+  },
+  "uiux": {
+    "title": "UI/UX Designer"
+  },
+  "qa": {
+    "title": "Quality Assurance"
+  },
+  "salesforce": {
+    "title": "Salesforce"
+  }
+}

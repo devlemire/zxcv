@@ -7,7 +7,7 @@ class App extends Component {
   render() {
     return (
       <div className="App__parent">
-        <div className="App__child">
+        <div id="App__child">
           { router }
         </div>
       </div>
