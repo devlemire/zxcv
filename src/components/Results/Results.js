@@ -58,6 +58,7 @@ class Results extends Component {
     return (
       <div className="Results__parent">
         <h1> Survey Results </h1>
+        <h2>Click on different courses to learn more about them.</h2>
 
         <div className="Category__parent">
           {
@@ -67,10 +68,10 @@ class Results extends Component {
                    onClick={ () => this.setState({ selected: category.label }) }>
 
                 <div className="Category__details">
-                  <div>
+                  <div className="Category__percent">
                     <CountUp start={0} end={ categories[i].value } />%
                   </div>
-                  <span>{ category.display }</span>
+                  <span className="Category__label">{ category.display }</span>
                 </div>
                 
                 <div className={ selected === category.label ? 'Category__bg-fill selected' : 'Category__bg-fill' }
