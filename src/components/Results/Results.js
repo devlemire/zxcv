@@ -10,24 +10,27 @@ class Results extends Component {
   constructor( props ) {
     super( props );
 
-    let { categories } = props;
+    let categories = [ ...props.categories ];
     categories[0].value = 10;
-    categories[1].value = 82;
-    categories[2].value = 34;
-    categories[3].value = 72;
-    categories[4].value = 100;
-
+    categories[1].value = 12;
+    categories[2].value = 14;
+    categories[3].value = 4;
+    categories[4].value = 2;
     let value = -1;
     let selected = null;
 
-    props.categories.forEach( category => {
+    categories.forEach( ( category, i ) => {
+      category.value = Math.floor( ( category.value / CATEGORIES[i].max ) * 100 );
+
       if ( category.value > value ) {
         selected = category.label;
+        value = category.value;
       }
     });
 
     this.state = {
-      selected
+      selected,
+      categories
     };
 
     this.finishSurvey = this.finishSurvey.bind( this );
@@ -52,8 +55,7 @@ class Results extends Component {
   }
 
   render() {
-    const { categories } = this.props;
-    const { selected } = this.state;
+    const { selected, categories } = this.state;
 
     return (
       <div className="Results__parent">
