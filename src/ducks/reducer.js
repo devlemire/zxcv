@@ -53,7 +53,7 @@ export default function reducer( state = initialState, action ) {
 
     case RESET:
       return Object.assign({}, initialState);
-
+      
     default:
       return state;
   }
