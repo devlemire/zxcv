@@ -1,5 +1,6 @@
 .App__parent {
-  min-width: 100%;
+  width: 100%;
+  min-width: 1140px;
   min-height: 100vh;
   display: flex;
   justify-content: center;
