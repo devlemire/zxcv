@@ -1,6 +1,7 @@
 .Question__parent {
   height: 100%;
   width: 100%;
+  min-height: 930px;
   position: relative;
   padding: 32px 120px;
   box-sizing: border-box;

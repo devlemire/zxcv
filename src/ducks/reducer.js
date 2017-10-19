@@ -1,11 +1,11 @@
 import questions from '../utils/questions.json';
 
 export const CATEGORIES = [ 
-  { value: 0, max: 30, label: 'web', display: 'Web Dev' }, 
-  { value: 0, max: 20, label: 'ios', display: 'iOS Dev' }, 
-  { value: 0, max: 15, label: 'uiux', display: 'UX Design' }, 
-  { value: 0, max: 40, label: 'qa', display: 'QA' }, 
-  { value: 0, max: 10, label: 'salesforce', display: 'Salesforce' } 
+  { value: 0, max: 15, label: 'web', display: 'Web Dev' }, 
+  { value: 0, max: 15, label: 'ios', display: 'iOS Dev' }, 
+  { value: 0, max: 18, label: 'uiux', display: 'UX Design' }, 
+  { value: 0, max: 19, label: 'qa', display: 'QA' }, 
+  { value: 0, max: 15, label: 'salesforce', display: 'Salesforce' } 
 ];
 
 const initialState = {

@@ -13,11 +13,6 @@ class Results extends Component {
     super( props );
 
     let categories = [ ...props.categories ];
-    categories[0].value = 10;
-    categories[1].value = 12;
-    categories[2].value = 14;
-    categories[3].value = 4;
-    categories[4].value = 2;
 
     this.state = determineSelectedAndPercent( categories, CATEGORIES );
     this.updateSelected = this.updateSelected.bind( this );
@@ -25,7 +20,6 @@ class Results extends Component {
   }
 
   componentDidMount() {
-    const { categories } = this.props;
     const { percent } = this.state;
 
     let appChildStyles = document.getElementById('App__child').style;
@@ -79,7 +73,7 @@ class Results extends Component {
             <div className="Selected__percent-container">
               <span>Personality Match:</span><h3>{ percent }%</h3>
               <div ref="percent_meter" id="Selected__percent-meter">
-                <div id="Selected__percent_filler" id="Selected__percent-filler" style={ { width: progressBarPixels } } />
+                <div id="Selected__percent_filler" style={ { width: progressBarPixels } } />
               </div>
             </div>
 

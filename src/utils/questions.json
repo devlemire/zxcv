@@ -1,45 +1,247 @@
 [
   {
-    "question": "Which toy best matches how you like to play?",
+    "question": "When working on a school or work project, what is most important to you?",
     "type": "one",
     "options": [
       {
-        "text": "Legos",
-        "values": [ 0, 0, 1, 0, 0 ]
+        "text": "Everything should be organized",
+        "values": [ 0, 1, 0, 1, 1 ]
       },
       {
-        "text": "Puzzles",
-        "values": [ 1, 1, 0, 1, 1 ]
-      },
-      {
-        "text": "Remote Control Cars",
+        "text": "The project should be 100% unique",
         "values": [ 1, 1, 0, 0, 0 ]
       },
       {
-        "text": "Board Games",
+        "text": "The project should clearly meet the need it was intended for",
+        "values": [ 0, 0, 1, 0, 1 ]
+      },
+      {
+        "text": "The project should be done quickly, so we can do other things.",
+        "values": [ 1, 0, 0, 1, 0 ]
+      }
+    ]
+  },
+  {
+    "question": "Which of these topics most interests you?",
+    "type": "one",
+    "options": [
+      {
+        "text": "Art or Design",
+        "values": [ 0, 0, 1, 0, 0 ]
+      },
+      {
+        "text": "Business or marketing",
+        "values": [ 0, 0, 0, 0, 1 ]
+      },
+      {
+        "text": "Math or Science",
+        "values": [ 1, 1, 0, 0, 0 ]
+      },
+      {
+        "text": "Theater or Debate",
         "values": [ 0, 0, 0, 1, 1 ]
       }
     ]
   },
   {
-    "question": "What's your favorite car in Rocket League?",
-    "type": "multiple",
+    "question": "Let's pretend you already know how to code. How do you go about making your own software?",
+    "type": "one",
     "options": [
       {
-        "text": "Octane",
+        "text": "Ask people what kinds of problems they have until you find one that you think you can solve with what you build.",
         "values": [ 0, 0, 1, 0, 0 ]
       },
       {
-        "text": "Dominus",
-        "values": [ 1, 1, 0, 1, 1 ]
-      },
-      {
-        "text": "Batmobile",
+        "text": "Tinker and play with things that interest you, like your hobbies, until you come up with something that sounds cool.",
         "values": [ 1, 1, 0, 0, 0 ]
       },
       {
-        "text": "Breakout",
+        "text": "Get a business to hire you to automate their process and build something that makes it so you and they can earn more money.",
         "values": [ 0, 0, 0, 1, 1 ]
+      },
+      {
+        "text": "Investigate new and emerging technologies to find out how they can be used to solve problems that were previously solved other ways.",
+        "values": [ 0, 1, 1, 0, 0 ]
+      }
+    ]
+  },
+  {
+    "question": "If you were put in charge of making a science fair project, how do you do it?",
+    "type": "one",
+    "options": [
+      {
+        "text": "Come up with something that interests you that no one else has tried, and try it.",
+        "values": [ 1, 1, 0, 0, 0 ]
+      },
+      {
+        "text": "Piece together other science projects, changing out specific pieces until it becomes something unique",
+        "values": [ 0, 0, 0, 1, 1 ]
+      },
+      {
+        "text": "Don't worry about being unique, we just need to make something that will actually work when you are done.",
+        "values": [ 1, 0, 1, 0, 0 ]
+      },
+      {
+        "text": "Try to find something to do with your friends, where everyone gets to participate.",
+        "values": [ 0, 0, 1, 1, 0 ]
+      }
+    ]
+  },
+  {
+    "question": "I like to (mark all that apply):",
+    "type": "multiple",
+    "options": [
+      {
+        "text": "Build things",
+        "values": [ 1, 1, 0, 0, 0 ]
+      },
+      {
+        "text": "Educate others",
+        "values": [ 0, 0, 0, 1, 1 ]
+      },
+      {
+        "text": "Find and define problems",
+        "values": [ 0, 0, 1, 1, 0 ]
+      },
+      {
+        "text": "Organize stuff",
+        "values": [ 0, 0, 0, 1, 1 ]
+      },
+      {
+        "text": "Figure out how things work",
+        "values": [ 1, 1, 0, 1, 1 ]
+      },
+      {
+        "text": "Tinker with computers/robotics",
+        "values": [ 1, 1, 0, 1, 0 ]
+      },
+      {
+        "text": "Draw, paint, or sculpt",
+        "values": [ 0, 0, 1, 0, 0 ]
+      },
+      {
+        "text": "Write stories",
+        "values": [ 0, 0, 1, 1, 1 ]
+      },
+      {
+        "text": "Experience new things or cultures",
+        "values": [ 0, 0, 1, 0, 0 ]
+      }
+    ]
+  },
+  {
+    "question": "I hate (mark all that apply):",
+  "type": "multiple",
+    "options": [
+      {
+        "text": "When people don't follow the rules",
+        "values": [ 0, 1, 0, 1, 0 ]
+      },
+      {
+        "text": "Being on teams where other people don't care as much as I do",
+        "values": [ 1, 0, 1, 0, 0 ]
+      },
+      {
+        "text": "Taking responsibility or leadership over other people's work",
+        "values": [ 1, 0, 0, -1, -1 ]
+      },
+      {
+        "text": "Doing the same task over and over",
+        "values": [ 1, 1, 1, 0, 0 ]
+      },
+      {
+        "text": "Having to do work when it is unclear what is expected of me",
+        "values": [ 0, 0, -1, 1, 1 ]
+      },
+      {
+        "text": "When my work or school won't let me take time off for hobbies or personal time",
+        "values": [ 0, 0, 0, 1, 1 ]
+      }
+    ]
+  },
+  {
+    "question": "Which do you want most in a future job?",
+    "type": "one",
+    "options": [
+      {
+        "text": "Freedcom and flexibility to do what you like outside of work",
+        "values": [ 0, 0, 0, 1, 1 ]
+      },
+      {
+        "text": "Doing things that are meaningful and change the world",
+        "values": [ 1, 0, 1, 0, 0 ]
+      },
+      {
+        "text": "Stability and security in your lifestyle and work habits",
+        "values": [ 0, 0, 1, 1, 0 ]
+      },
+      {
+        "text": "The excitement of working on something new and interesting",
+        "values": [ 1, 1, 0, 0, 0 ]
+      }
+    ]
+  },
+  {
+    "question": "Your work is giving away $1000 and a promotion to anyone who can find a way to make the company better, and it will become their job to do so. Which best describes how YOU would do this?",
+    "type": "one",
+    "options": [
+      {
+        "text": "Design a better work place that is more pleasant and happy for workers, improving their productivity and morale",
+        "values": [ 0, 0, 1, 0, 0 ]
+      },
+      {
+        "text": "Come up with a new product for the company to make and sell to emerging markets",
+        "values": [ 1, 1, 0, 0, 0 ]
+      },
+      {
+        "text": "Find inefficient people and processes and help them to organize things and create less waste",
+        "values": [ 0, 0, 0, 1, 1 ]
+      },
+      {
+        "text": "Automate some of the work that is being done and free up time for workers to move on to other important tasks",
+        "values": [ 1, 0, 0, 1, 0 ]
+      },
+      {
+        "text": "Clarify the goals of the business and educate workers to help everyone focus their energy on the tasks that will earn the company more money",
+        "values": [ 0, 0, 1, 0, 1 ]
+      }
+    ]
+  },
+  {
+    "question": "Choose phrases that describe you well:",
+    "type": "multiple",
+    "options": [
+      {
+        "text": "I like things to look good.",
+        "values": [ 0, 1, 1, 0, 0 ]
+      },
+      {
+        "text": "I love my phone, and I think apps are really cool and useful.",
+        "values": [ 0, 1, 0, 0, 0 ]
+      },
+      {
+        "text": "I'm always looking for the latest and greatest thing to try.",
+        "values": [ 1, 0, 1, 0, 0 ]
+      },
+      {
+        "text": "I think how businesses work and make money is fascinating.",
+        "values": [ 0, 0, 0, 0, 1 ]
+      },
+      {
+        "text": "If I have 4 hours to complete a project, I'll take 3 clearly planning what needs to be done.",
+        "values": [ 0, 0, 1, 1, 0 ]
+      },
+      {
+        "text": "I am organized and I like to keep things neat.",
+        "values": [ 0, 0, 0, 1, 1 ]
+      },
+      {
+        "text": "I get obsessed easily about things that I care about.",
+        "values": [ 1, 1, 1, 0, 0 ]
+      },
+      {
+        "text": "I am a good communicator and peacemaker.",
+        "values": [ 0, 0, 1, 1, 0 ]
       }
     ]
   }

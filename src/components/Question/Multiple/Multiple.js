@@ -35,7 +35,7 @@ export default class Multiple extends Component {
     const { options, currentQuestion, currentAnswers } = this.props;
 
     return (
-      <div>
+      <div className="MultipleAnswer__container">
         {
           options.map( ( option, i ) => (
             <Checkbox label={ option.text }

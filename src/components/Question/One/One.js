@@ -9,15 +9,17 @@ export default class One extends Component {
 
   render() {
     const { options, currentQuestion, currentAnswers } = this.props;
+    console.log( options, currentQuestion, currentAnswers, currentAnswers[0] );
 
     return (
-      <div>
-        <RadioButtonGroup name="answers" defaultSelected={ currentAnswers[0] }>
+      <div className="OneAnswer__container">
+        <RadioButtonGroup name={ `radio-group-${ currentQuestion }` }>
         {
           options.map( (option, i) => (
-            <RadioButton key={ i }
+            <RadioButton key={ `radio-${ currentQuestion }-${ i }` }
                          onClick={ () => this.handleSelect( currentQuestion, i ) }
                          value={ i }
+                         checked={ currentAnswers[0] === i }
                          label={ option.text }
                          iconStyle={ { fill: '#3fbaf9' } }
                          labelStyle={ { fontFamily: "'Merriweather Sans', sans-serif" } }
