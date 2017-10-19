@@ -4,12 +4,13 @@ import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
 export default class One extends Component {
   render() {
     const { options, currentQuestion, currentAnswers, select } = this.props;
-    console.log( options, currentQuestion, currentAnswers, currentAnswers[0] );
+    console.log( 'Current Question Index:', currentQuestion );
+    console.log( 'Current Question Answers:', currentAnswers );
 
     return (
       <div className="OneAnswer__container">
         <RadioButtonGroup name={ `radio-group-${ currentQuestion }` } 
-                          defaultSelected={ currentAnswers[0] } 
+                          valueSelected={ currentAnswers[0] } 
                           onChange={ (e, value) => select( currentQuestion, [ value ] ) }>
         {
           options.map( (option, i) => (
