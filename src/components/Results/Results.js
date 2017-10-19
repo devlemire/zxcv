@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import CountUp from 'react-countup';
 import { CATEGORIES, reset } from '../../ducks/reducer';
 import courses from '../../utils/courses.json';
+import determineSelectedAndPercent from '../../utils/determineSelectedAndPercent';
+import calculateWidth from '../../utils/calculateWidth';
 
 import './Results.css';
 
@@ -16,36 +18,24 @@ class Results extends Component {
     categories[2].value = 14;
     categories[3].value = 4;
     categories[4].value = 2;
-    let value = -1;
-    let selected = null;
 
-    categories.forEach( ( category, i ) => {
-      category.value = Math.floor( ( category.value / CATEGORIES[i].max ) * 100 );
-
-      if ( category.value > value ) {
-        selected = category.label;
-        value = category.value;
-      }
-    });
-
-    this.state = {
-      selected,
-      categories
-    };
-
+    this.state = determineSelectedAndPercent( categories, CATEGORIES );
+    this.updateSelected = this.updateSelected.bind( this );
     this.finishSurvey = this.finishSurvey.bind( this );
   }
 
   componentDidMount() {
     const { categories } = this.props;
+    const { percent } = this.state;
 
     let appChildStyles = document.getElementById('App__child').style;
     appChildStyles.width = '100%';
 
-    for( var i = 0; i < CATEGORIES.length; i++ ) {
-      let styles = document.getElementById(`category-percent-${ i }`).style;
-      styles.height = `${ categories[i].value }%`;
-    }
+    this.setState({ progressBarPixels: calculateWidth( percent, this.refs.percent_meter.offsetWidth ) });
+  }
+
+  updateSelected( category ) {
+    this.setState({ selected: category.label, percent: category.value, progressBarPixels: calculateWidth( category.value, this.refs.percent_meter.offsetWidth ) });
   }
 
   finishSurvey() {
@@ -55,42 +45,57 @@ class Results extends Component {
   }
 
   render() {
-    const { selected, categories } = this.state;
+    const { selected, percent, categories, progressBarPixels } = this.state;
 
     return (
       <div className="Results__parent">
-        <h1> Survey Results </h1>
-        <h2>Click on different courses to learn more about them.</h2>
+        <div className="Results__child">
+          <h1> Survey Results </h1>
+          <h2>Click on different courses to learn more about them.</h2>
 
-        <div className="Category__parent">
-          {
-            CATEGORIES.map( ( category, i ) => (
-              <div className="Category__child"
-                   key={ `category-child-${ i }` }
-                   onClick={ () => this.setState({ selected: category.label }) }>
+          <div className="Category__parent">
+            {
+              CATEGORIES.map( ( category, i ) => (
+                <div className={ selected === category.label ? 'Category__child selected' : 'Category__child' }
+                    key={ `category-child-${ i }` }
+                    id={ `category-child-${ i }` }
+                    onClick={ () => this.updateSelected( category ) }>
 
-                <div className="Category__details">
                   <div className="Category__percent">
                     <CountUp start={0} end={ categories[i].value } />%
                   </div>
+
                   <span className="Category__label">{ category.display }</span>
                 </div>
-                
-                <div className={ selected === category.label ? 'Category__bg-fill selected' : 'Category__bg-fill' }
-                     id={ `category-percent-${ i }` } />
-              </div>
-            ))
-          }
-        </div>
-        
-        <div className="Results__selected-category">
-          <h1> { courses[ selected ].title } </h1>
-          <button onClick={ this.finishSurvey }>Finish Survey</button>
-        </div>
+              ))
+            }
+          </div>
+          
+          <div className="Selected__container">
+            <div className="Selected__header-container">
+              <h1> { courses[ selected ].title } </h1>
+            </div>
 
-        <div className="Results__lightest-blue-bg" />
-        <div className="Results__light-blue-bg" />
-        <div className="Results__dark-blue-bg" />
+            <div className="Selected__percent-container">
+              <span>Personality Match:</span><h3>{ percent }%</h3>
+              <div ref="percent_meter" id="Selected__percent-meter">
+                <div id="Selected__percent_filler" id="Selected__percent-filler" style={ { width: progressBarPixels } } />
+              </div>
+            </div>
+
+            <div className="Selected__details-container">
+
+            </div>
+
+            <div className="Selected__finish-container">
+              <button onClick={ this.finishSurvey }>Finish Survey</button>
+            </div>
+          </div>
+
+          <div className="Results__lightest-blue-bg" />
+          <div className="Results__light-blue-bg" />
+          <div className="Results__dark-blue-bg" />
+        </div>
       </div>
     )
   }
