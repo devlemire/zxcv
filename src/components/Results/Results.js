@@ -13,11 +13,6 @@ class Results extends Component {
     super( props );
 
     let categories = [ ...props.categories ];
-    categories[0].value = 5;
-    categories[1].value = 10;
-    categories[2].value = 3;
-    categories[3].value = 2;
-    categories[4].value = 14;
 
     this.state = determineSelectedAndPercent( categories, CATEGORIES );
     this.updateSelected = this.updateSelected.bind( this );
