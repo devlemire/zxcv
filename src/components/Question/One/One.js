@@ -13,13 +13,12 @@ export default class One extends Component {
 
     return (
       <div className="OneAnswer__container">
-        <RadioButtonGroup name={ `radio-group-${ currentQuestion }` }>
+        <RadioButtonGroup name={ `radio-group-${ currentQuestion }` } defaultSelected={ currentAnswers[0] }>
         {
           options.map( (option, i) => (
             <RadioButton key={ `radio-${ currentQuestion }-${ i }` }
                          onClick={ () => this.handleSelect( currentQuestion, i ) }
                          value={ i }
-                         checked={ currentAnswers[0] === i }
                          label={ option.text }
                          iconStyle={ { fill: '#3fbaf9' } }
                          labelStyle={ { fontFamily: "'Merriweather Sans', sans-serif" } }

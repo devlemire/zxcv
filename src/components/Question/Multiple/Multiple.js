@@ -13,8 +13,6 @@ export default class Multiple extends Component {
     const { select, currentAnswers } = this.props;
     let selected = [];
 
-    console.log( checked );
-    
     if ( checked ) {
       // Add to answers
       if ( currentAnswers ) {
