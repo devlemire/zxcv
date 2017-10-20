@@ -1,17 +1,22 @@
 {
   "web": {
-    "title": "Web Developer"
+    "title": "Web Developer",
+    "info": ""
   },
   "ios": {
-    "title": "iOS Developer"
+    "title": "iOS Developer",
+    "info": ""
   },
   "uiux": {
-    "title": "UI/UX Designer"
+    "title": "UI/UX Designer",
+    "info": ""
   },
   "qa": {
-    "title": "Quality Assurance"
+    "title": "Quality Assurance",
+    "info": ""
   },
   "salesforce": {
-    "title": "Salesforce"
+    "title": "Salesforce",
+    "info": ""
   }
 }
