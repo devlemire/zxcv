@@ -5,7 +5,7 @@ let api = {
 if ( process.env.NODE_ENV === 'development' ) {
   api.base = 'http://localhost:3000';
 } else {
-  api.base = 'http://104.131.99.159:10005';
+  api.base = `${ window.location.protocol }//${ window.location.hostname }:${ window.location.port }`;
 }
 
 export default api;
