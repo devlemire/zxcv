@@ -4,8 +4,6 @@ import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
 export default class One extends Component {
   render() {
     const { options, currentQuestion, currentAnswers, select } = this.props;
-    console.log( 'Current Question Index:', currentQuestion );
-    console.log( 'Current Question Answers:', currentAnswers );
 
     return (
       <div className="OneAnswer__container">
