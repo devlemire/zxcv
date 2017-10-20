@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CountUp from 'react-countup';
-import { CATEGORIES, reset } from '../../ducks/reducer';
+import { reset } from '../../ducks/reducer';
 import courses from '../../utils/courses.json';
-import determineSelectedAndPercent from '../../utils/determineSelectedAndPercent';
+import CIP from '../../utils/categoriesInPercent';
+import sortCategories from '../../utils/sortCategories';
 import calculateWidth from '../../utils/calculateWidth';
 
 import './Results.css';
@@ -12,24 +13,35 @@ class Results extends Component {
   constructor( props ) {
     super( props );
 
-    let categories = [ ...props.categories ];
+    let categories = CIP( props.categories );
+    let sortedCategories = sortCategories( categories );
 
-    this.state = determineSelectedAndPercent( categories, CATEGORIES );
+    this.state = {
+      selected: sortedCategories[0].label,
+      percent: sortedCategories[0].value,
+      categories: sortedCategories
+    };
+
     this.updateSelected = this.updateSelected.bind( this );
     this.finishSurvey = this.finishSurvey.bind( this );
   }
 
   componentDidMount() {
     const { percent } = this.state;
+    const { percent_meter } = this.refs;
 
     let appChildStyles = document.getElementById('App__child').style;
     appChildStyles.width = '100%';
 
-    this.setState({ progressBarPixels: calculateWidth( percent, this.refs.percent_meter.offsetWidth ) });
+    this.setState({ progressBarPixels: calculateWidth( percent, percent_meter.offsetWidth ) });
   }
 
   updateSelected( category ) {
-    this.setState({ selected: category.label, percent: category.value, progressBarPixels: calculateWidth( category.value, this.refs.percent_meter.offsetWidth ) });
+    const { percent_meter } = this.refs;
+
+    this.setState({ selected: category.label, 
+                    percent: category.value, 
+                    progressBarPixels: calculateWidth( category.value, percent_meter.offsetWidth ) });
   }
 
   finishSurvey() {
@@ -44,7 +56,7 @@ class Results extends Component {
     return (
       <div className="Results__parent">
         <div className="Results__child">
-          <h1> Survey Results </h1>
+          <h1>Survey Results</h1>
           <h2>Click on different courses to learn more about them.</h2>
 
           <div className="Category__parent">

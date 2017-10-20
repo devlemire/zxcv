@@ -4,6 +4,7 @@ import { calculateModifiers } from '../../ducks/reducer';
 import axios from 'axios';
 import api from '../../utils/api';
 import logo from '../../assets/logo.png';
+import CIP from '../../utils/categoriesInPercent';
 
 import './Submit.css';
 
@@ -32,15 +33,17 @@ class Submit extends Component {
 
   submit() {
     const { email } = this.state;
-    const { history, categories } = this.props;
+    const { history } = this.props;
 
     if ( email === '' ) return;
+
+    const categories = CIP( this.props.categories );
 
     let requestBody = { email };
     for( var i = 0; i < categories.length; i++) {
       requestBody[ categories[i].label ] = categories[i].value;
     }
-
+    
     axios.post( `${api.base + api.submissions}`, requestBody )
       .then( () => history.push('/results') )
       .catch( err => {
