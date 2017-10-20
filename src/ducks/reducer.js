@@ -13,9 +13,9 @@ const initialState = {
   categories: CATEGORIES
 };
 
-export const SELECT_ANSWER = 'SELECT_ANSWER';
-export const CALCULATE_MODIFIERS = "CALCULATE_MODIFIERS";
-export const RESET = "RESET";
+const SELECT_ANSWER = 'SELECT_ANSWER';
+const CALCULATE_MODIFIERS = "CALCULATE_MODIFIERS";
+const RESET = "RESET";
 
 export default function reducer( state = initialState, action ) {
   const { type, payload } = action;
@@ -49,8 +49,6 @@ export default function reducer( state = initialState, action ) {
         });
       });
 
-      
-      
       return newState;
 
     case RESET:
