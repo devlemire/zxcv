@@ -131,7 +131,7 @@
   },
   {
     "question": "I hate (mark all that apply):",
-  "type": "multiple",
+    "type": "multiple",
     "options": [
       {
         "text": "When people don't follow the rules",
