@@ -86,7 +86,6 @@ describe("Reducer Tests", () => {
   test("calculateModifiers math is correct", () => {
     let calculatedState = null;
     let correctValues = [];
-    let i;
 
     CATEGORIES.forEach( category => {
       correctValues.push( 0 );
