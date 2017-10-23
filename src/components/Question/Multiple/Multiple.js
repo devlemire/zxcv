@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Checkbox from 'material-ui/Checkbox';
 
 export default class Multiple extends Component {
@@ -49,4 +50,11 @@ export default class Multiple extends Component {
       </div>
     )
   }
+}
+
+Multiple.propTypes = {
+  options: PropTypes.array.isRequired,
+  select: PropTypes.func.isRequired,
+  currentQuestion: PropTypes.number.isRequired,
+  currentAnswers: PropTypes.array.isRequired
 }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import CountUp from 'react-countup';
 import { reset } from '../../ducks/reducer';
@@ -111,3 +112,9 @@ function mapStateToProps( state ) {
 }
 
 export default connect( mapStateToProps, { reset } )( Results );
+
+Results.propTypes = {
+  categories: PropTypes.array.isRequired,
+  history: PropTypes.object.isRequired,
+  reset: PropTypes.func.isRequired
+}

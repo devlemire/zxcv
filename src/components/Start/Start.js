@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 
@@ -31,4 +32,8 @@ export default class Start extends Component {
       </div>
     )
   }
+}
+
+Start.propTypes = {
+  history: PropTypes.object.isRequired
 }

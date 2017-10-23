@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 import questions from '../../utils/questions.json';
 import completed from '../../assets/completed.png';
 import incompleted from '../../assets/incompleted.png';
@@ -51,4 +51,10 @@ export default class Navigation extends Component {
       </div>
     )
   }
+}
+
+Navigation.propTypes = {
+  history: PropTypes.object.isRequired,
+  lastQuestion: PropTypes.number.isRequired,
+  currentQuestion: PropTypes.number.isRequired
 }

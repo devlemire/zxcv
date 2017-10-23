@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { calculateModifiers } from '../../ducks/reducer';
 import axios from 'axios';
@@ -89,3 +90,9 @@ class Submit extends Component {
 }
 
 export default connect( state => state, { calculateModifiers } )( Submit );
+
+Submit.propTypes = {
+  answers: PropTypes.array.isRequired,
+  calculateModifiers: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired
+}

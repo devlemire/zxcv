@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
 
 export default class One extends Component {
@@ -25,4 +26,11 @@ export default class One extends Component {
       </div>
     )
   }
+}
+
+One.propTypes = {
+  options: PropTypes.array.isRequired,
+  select: PropTypes.func.isRequired,
+  currentQuestion: PropTypes.number.isRequired,
+  currentAnswers: PropTypes.array.isRequired
 }

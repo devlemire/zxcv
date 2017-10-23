@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { selectAnswer } from '../../ducks/reducer';
 import logo from '../../assets/logo.png';
@@ -76,3 +77,10 @@ function mapStateToProps( state ) {
 }
 
 export default connect( mapStateToProps, { selectAnswer } )( Question );
+
+Question.propTypes = {
+  answers: PropTypes.array.isRequired,
+  history: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired,
+  selectAnswer: PropTypes.func.isRequired
+}
