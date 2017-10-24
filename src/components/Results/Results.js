@@ -89,9 +89,12 @@ class Results extends Component {
             </div>
 
             <div className="Selected__details-container">
-              <p>Nullam id dolor id nibh ultricies vehicula ut id elit. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam id dolor id nibh ultricies vehicula ut id elit. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
-
-              <p>Nullam id dolor id nibh ultricies vehicula ut id elit. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam id dolor id nibh ultricies vehicula ut id elit. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+              {
+                courses[ selected ].paragraphs.map( ( text, i ) => (
+                  <p key={ `selected-course-paragraph-${ i }` }>{ text }</p>
+                ))
+              }
+              
               <button onClick={ this.finishSurvey }>Finish Survey</button>
             </div>
           </div>

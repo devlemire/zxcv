@@ -21,9 +21,7 @@ export default class Start extends Component {
 
         <div className="Start__content">
           <h1>Student Survey</h1>
-          <p>
-            Nullam id dolor id nibh ultricies vehicula ut id elit. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam id dolor id nibh ultricies vehicula ut id elit. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-          </p>
+          <p>The world of new and emerging technologies is changing every day. Take ten minutes to fill out a short questionnaire and you could find out which tech job could be right for you. As you fill out each question,  remember that there are no wrong answers, just try to be honest with yourself.</p>
 
           <div className="Start__btnContainer">
             <button onClick={ () => this.props.history.push('/question/0') }>Start the Survey!</button>

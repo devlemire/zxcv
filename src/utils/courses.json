@@ -1,22 +1,37 @@
 {
   "web": {
     "title": "Web Developer",
-    "info": ""
+    "paragraphs": [ 
+      "Web Developers code websites and web applications. After mastering the core languages of the internet, they use their knowledge to communicate with web browsers, servers, and databases to do any number of possible web-based projects. Anything from online stores to online banking sites use Web Developers to build their core product.",
+      "Facebook, YouTube, Google, and Amazon were all built by Web Developers - even this survey you are taking was made by a Web Development graduate from DevMountain."
+    ]
   },
   "ios": {
     "title": "iOS Developer",
-    "info": ""
+    "paragraphs": [
+      "Become a master of mobile by learning iOS Development. iOS Developers code the apps that you and I use everyday. Using Apple’s app-building tools, environments, and coding language, they create the software that powers the mobile world.",
+      "All of your favorite mobile apps were made by iOS Developers, including Instagram, Spotify, Snapchat, or hundreds of thousands of others. You’ll learn how to build real-world apps, using the phone’s camera or GPS system, and you’ll graduate with 2 original apps on the App Store."
+    ]
   },
   "uiux": {
     "title": "UI/UX Designer",
-    "info": ""
+    "paragraphs": [ 
+      "User experience designers mix art and science to craft the interactions between humans and technology. UX Designers explore the possibilities of what could be, find out how to make technology work better for the people that use it, and communicate that information to the rest of the team.",
+      "Every interaction you’ve ever had with technology was designed by someone, whether it be the simple way your camera app works, or the virtual reality experiences at theme parks around the world. Someone needs to use their creativity and research skills to come up with how those should work, and that someone could be you."
+    ]
   },
   "qa": {
     "title": "Quality Assurance",
-    "info": ""
+    "paragraphs": [
+      "Quality Assurance Engineers use existing tools to test and probe the inner workings of technological products. QA jobs are some of few that involve making technical products without having to know how to code them, and yet they are very satisfying and enjoyable. QA engineers open up tech products and software to see how they work, and then test them to see if they could work better.", 
+      "Additionally, QA jobs offer some of the best salary, flexibility, and other benefits in the industry. Plus, according to Forbes magazine, Software QA workers are some of the happiest in the world."
+    ]
   },
   "salesforce": {
     "title": "Salesforce",
-    "info": ""
+    "paragraphs": [
+      "Salesforce Developers work to build custom business profiles, workflows, and business processes for companies within the largest customer sales and marketing tool in the world: Salesforce. Salesforce Developers leverage their knowledge of the platform, how businesses and marketing work, and a desire to automate business processes to make huge impacts on how companies get new customers.", 
+      "SalesForce engineers are one of the least known, but most sought after workers in the modern tech market. Primarily hired by consulting companies, Salesforce Developers get a chance to work with many clients and interact with several companies."
+    ]
   }
 }
