@@ -45,13 +45,7 @@ export default function reducer( state = initialState, action ) {
         if ( answer && answer.modifiers ) {
           answer.modifiers.forEach( modifier => {
             modifier.forEach( ( value, index ) => {
-
               newState.categories[index].value += value;
-
-              if ( newState.categories[index].value < 0 ) {
-                newState.categories[index].value = 0;
-              }
-              
             });
           });
         }

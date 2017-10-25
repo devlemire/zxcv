@@ -13,6 +13,7 @@ class Submit extends Component {
   componentDidMount() {
     const { answers, calculateModifiers, history } = this.props;
     if ( answers.length > 0 ) {
+      console.log( answers );
       calculateModifiers( answers );
     } else if ( answers.length === 0 ) {
       // Student accidentally refreshed on submit screen
