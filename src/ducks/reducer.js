@@ -19,7 +19,7 @@ const RESET = "RESET";
 
 export default function reducer( state = initialState, action ) {
   const { type, payload } = action;
-  console.log('Reduce hit:', action);
+  // console.log('Reduce hit:', action);
   let newState;
 
   switch( type ) {

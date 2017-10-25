@@ -23,6 +23,17 @@ class Question extends Component {
     });
   }
 
+  componentDidMount() {
+    const { currentQuestion } = this.state;
+    const { answers, history } = this.props;
+    // User is on question 2 or above and has accidentally refreshed.
+    if ( currentQuestion + 1 >= 2 ) {
+      if ( answers.length === 0 ) {
+        history.push('/');
+      }
+    }
+  }
+
   constructor( props ) {
     super( props );
     const { answers } = this.props;

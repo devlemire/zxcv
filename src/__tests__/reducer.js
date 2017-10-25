@@ -110,6 +110,41 @@ describe("Reducer Tests", () => {
       expect( category.value ).toEqual( correctValues[i] );
     });
   });
+
+  test("calculateModifieres can handle skipped questions", () => {
+    let calculatedState = null;
+    let correctValues = [];
+
+    CATEGORIES.forEach( category => {
+      correctValues.push( 0 );
+    });
+
+    questions.forEach( (question, i) => {
+      if ( i % 2 === 0 ) {
+        calculatedState = reducer( calculatedState || state, selectAnswer( i, [0] ) );
+      }
+    });
+
+    calculatedState = reducer( calculatedState, calculateModifiers( calculatedState.answers ) );
+    console.log( calculatedState.answers );
+    const categories = calculatedState.categories;
+
+    calculatedState.answers.forEach( answer => {
+      if ( answer ) {
+        answer.modifiers.forEach( modifier => {
+          modifier.forEach( ( value, index ) => {
+            correctValues[index] += value;
+          });
+        });
+      }
+    });
+
+    console.log( correctValues );
+    console.log( categories );
+    categories.forEach( (category, i) => {
+      expect( category.value ).toEqual( correctValues[i] );
+    });
+  });
   
   test("reset sets store state back to the initialState", () => {
     state = reducer( state, reset() );
