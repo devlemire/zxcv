@@ -33,7 +33,6 @@ describe("questions.json tests", () => {
           break;
 
         default:
-          console.log('Unsupported question type:', question.type );
           break;
       }
 

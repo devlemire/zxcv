@@ -17,6 +17,10 @@ class Start extends Component {
     reset();
   }
 
+  componentDidUpdate() {
+    reset();
+  }
+
   render() {
     return (
       <div className="Start__parent">

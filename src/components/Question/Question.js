@@ -34,6 +34,11 @@ class Question extends Component {
     }
   }
 
+  componentDidUpdate() {
+    const { hasSubmitted, history } = this.props;
+    if ( hasSubmitted ) history.push('/');
+  }
+
   constructor( props ) {
     super( props );
     const { answers } = this.props;
@@ -83,7 +88,8 @@ class Question extends Component {
 
 function mapStateToProps( state ) {
   return {
-    answers: state.answers
+    answers: state.answers,
+    hasSubmitted: state.hasSubmitted
   };
 }
 

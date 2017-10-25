@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { calculateModifiers } from '../../ducks/reducer';
+import { calculateModifiers, submitted } from '../../ducks/reducer';
 import axios from 'axios';
 import api from '../../utils/api';
 import logo from '../../assets/logo.png';
@@ -13,12 +13,17 @@ class Submit extends Component {
   componentDidMount() {
     const { answers, calculateModifiers, history } = this.props;
     if ( answers.length > 0 ) {
-      console.log( answers );
+      // console.log( answers );
       calculateModifiers( answers );
     } else if ( answers.length === 0 ) {
       // Student accidentally refreshed on submit screen
       history.push('/');
     }
+  }
+
+  componentDidUpdate() {
+    const { hasSubmitted, history } = this.props;
+    if ( hasSubmitted ) history.push('/');
   }
 
   constructor() {
@@ -38,7 +43,7 @@ class Submit extends Component {
 
   submit() {
     const { email } = this.state;
-    const { history } = this.props;
+    const { history , submitted} = this.props;
 
     if ( email === '' ) return;
 
@@ -50,8 +55,10 @@ class Submit extends Component {
     }
     
     axios.post( `${api.base + api.submissions}`, requestBody )
-      .then( () => history.push('/results') )
-      .catch( err => {
+      .then( () => {
+        history.push('/results');
+        submitted();
+      }).catch( err => {
         // Unparse the error.
         const errObj = Object.assign({}, err);
         const errMsg = errObj.response.data;
@@ -93,7 +100,7 @@ class Submit extends Component {
   }
 }
 
-export default connect( state => state, { calculateModifiers } )( Submit );
+export default connect( state => state, { calculateModifiers, submitted } )( Submit );
 
 Submit.propTypes = {
   answers: PropTypes.array.isRequired,

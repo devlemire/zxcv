@@ -10,12 +10,14 @@ export const CATEGORIES = [
 
 const initialState = {
   answers: [],
-  categories: CATEGORIES
+  categories: CATEGORIES,
+  hasSubmitted: false
 };
 
 const SELECT_ANSWER = 'SELECT_ANSWER';
 const CALCULATE_MODIFIERS = "CALCULATE_MODIFIERS";
 const RESET = "RESET";
+const SUBMITTED = "SUBMITTED";
 
 export default function reducer( state = initialState, action ) {
   const { type, payload } = action;
@@ -55,6 +57,9 @@ export default function reducer( state = initialState, action ) {
 
     case RESET:
       return Object.assign({}, initialState);
+
+    case SUBMITTED:
+      return Object.assign({}, state, { hasSubmitted: true } );
       
     default:
       return state;
@@ -78,6 +83,13 @@ export function calculateModifiers( answers ) {
 export function reset() {
   return {
     type: RESET,
+    payload: null
+  };
+}
+
+export function submitted() {
+  return {
+    type: SUBMITTED,
     payload: null
   };
 }
