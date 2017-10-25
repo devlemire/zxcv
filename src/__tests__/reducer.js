@@ -130,7 +130,7 @@ describe("Reducer Tests", () => {
     const categories = calculatedState.categories;
 
     calculatedState.answers.forEach( answer => {
-      if ( answer ) {
+      if ( answer && answer.modifiers ) {
         answer.modifiers.forEach( modifier => {
           modifier.forEach( ( value, index ) => {
             correctValues[index] += value;
@@ -142,6 +142,7 @@ describe("Reducer Tests", () => {
     console.log( correctValues );
     console.log( categories );
     categories.forEach( (category, i) => {
+      console.log( category, correctValues[i] );
       expect( category.value ).toEqual( correctValues[i] );
     });
   });
