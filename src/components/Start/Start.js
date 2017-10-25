@@ -2,13 +2,19 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.png';
+import { connect } from 'react-redux';
+import { reset } from '../../ducks/reducer';
 
 import './Start.css';
 
-export default class Start extends Component {
+class Start extends Component {
   componentDidMount() {
+    const { reset } = this.props;
+
     let appChildStyles = document.getElementById('App__child').style;
     appChildStyles.width = '976px';
+
+    reset();
   }
 
   render() {
@@ -31,6 +37,8 @@ export default class Start extends Component {
     )
   }
 }
+
+export default connect( state => state, { reset } )( Start );
 
 Start.propTypes = {
   history: PropTypes.object.isRequired

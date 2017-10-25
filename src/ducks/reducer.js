@@ -19,7 +19,7 @@ const RESET = "RESET";
 
 export default function reducer( state = initialState, action ) {
   const { type, payload } = action;
-  // console.log('Reduce hit:', action);
+  console.log('Reduce hit:', action);
   let newState;
 
   switch( type ) {
@@ -42,11 +42,13 @@ export default function reducer( state = initialState, action ) {
       let { answers } = payload;
 
       answers.forEach( answer => {
-        answer.modifiers.forEach( modifier => {
-          modifier.forEach( ( value, index ) => {
-            newState.categories[index].value += value;
+        if ( answer ) {
+          answer.modifiers.forEach( modifier => {
+            modifier.forEach( ( value, index ) => {
+              newState.categories[index].value += value;
+            });
           });
-        });
+        }
       });
 
       return newState;
