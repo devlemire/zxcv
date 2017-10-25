@@ -30,6 +30,12 @@ class Results extends Component {
   componentDidMount() {
     const { percent } = this.state;
     const { percent_meter } = this.refs;
+    const { answers, history } = this.props;
+
+    // Student refreshed on results screen.
+    if ( answers.length === 0 ) {
+      history.push('/');
+    }
 
     let appChildStyles = document.getElementById('App__child').style;
     appChildStyles.width = '100%';
@@ -110,6 +116,7 @@ class Results extends Component {
 
 function mapStateToProps( state ) {
   return {
+    answers: state.answers,
     categories: state.categories
   }
 }

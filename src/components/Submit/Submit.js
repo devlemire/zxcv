@@ -11,9 +11,12 @@ import './Submit.css';
 
 class Submit extends Component {
   componentDidMount() {
-    const { answers, calculateModifiers } = this.props;
+    const { answers, calculateModifiers, history } = this.props;
     if ( answers.length > 0 ) {
       calculateModifiers( answers );
+    } else if ( answers.length === 0 ) {
+      // Student accidentally refreshed on submit screen
+      history.push('/');
     }
   }
 
