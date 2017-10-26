@@ -11,12 +11,12 @@ import './Submit.css';
 
 class Submit extends Component {
   componentDidMount() {
-    const { answers, calculateModifiers, history } = this.props;
-    if ( answers.length > 0 ) {
-      // console.log( answers );
+    const { answers, calculateModifiers, history, hasSubmitted } = this.props;
+
+    if ( answers.length > 0 && !hasSubmitted ) {
       calculateModifiers( answers );
-    } else if ( answers.length === 0 ) {
-      // Student accidentally refreshed on submit screen
+    } else if ( answers.length === 0 || hasSubmitted ) {
+      // Student accidentally refreshed on submit screen or hit back from the results screen
       history.push('/');
     }
   }

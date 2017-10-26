@@ -1,18 +1,18 @@
 import questions from '../utils/questions.json';
 
-export const CATEGORIES = [ 
-  { value: 0, max: 15, label: 'web', display: 'Web Dev' }, 
-  { value: 0, max: 15, label: 'ios', display: 'iOS Dev' }, 
-  { value: 0, max: 18, label: 'uiux', display: 'UX Design' }, 
-  { value: 0, max: 19, label: 'qa', display: 'QA' }, 
-  { value: 0, max: 15, label: 'salesforce', display: 'Salesforce' } 
-];
-
 const initialState = {
   answers: [],
-  categories: CATEGORIES,
+  categories: [
+    { value: 0, max: 15, label: 'web', display: 'Web Dev' }, 
+    { value: 0, max: 15, label: 'ios', display: 'iOS Dev' }, 
+    { value: 0, max: 18, label: 'uiux', display: 'UX Design' }, 
+    { value: 0, max: 19, label: 'qa', display: 'QA' }, 
+    { value: 0, max: 15, label: 'salesforce', display: 'Salesforce' } 
+  ],
   hasSubmitted: false
 };
+
+export const CATEGORY_MAXIMUMS = [ 15, 15, 18, 19, 15 ];
 
 const SELECT_ANSWER = 'SELECT_ANSWER';
 const CALCULATE_MODIFIERS = "CALCULATE_MODIFIERS";
@@ -42,17 +42,18 @@ export default function reducer( state = initialState, action ) {
       newState.categories = [ ...newState.categories ];
 
       let { answers } = payload;
-
+      
       answers.forEach( answer => {
         if ( answer && answer.modifiers ) {
           answer.modifiers.forEach( modifier => {
             modifier.forEach( ( value, index ) => {
-              newState.categories[index].value += value;
+              newState.categories[ index ] = Object.assign({}, newState.categories[ index ]);
+              newState.categories[ index ].value += value;
             });
           });
         }
       });
-
+      
       return newState;
 
     case RESET:

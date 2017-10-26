@@ -18,6 +18,8 @@ class Start extends Component {
   }
 
   componentDidUpdate() {
+    console.log('looping?');
+    const { reset } = this.props;
     reset();
   }
 

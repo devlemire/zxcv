@@ -1,5 +1,5 @@
 import reducer from '../ducks/reducer';
-import { CATEGORIES, selectAnswer, calculateModifiers, reset } from '../ducks/reducer';
+import { CATEGORY_MAXIMUMS ,selectAnswer, calculateModifiers, reset } from '../ducks/reducer';
 import questions from '../utils/questions.json';
 
 let state = null;
@@ -14,16 +14,6 @@ describe("Reducer Tests", () => {
   test("answers is initialized correctly", () => {
     expect( Array.isArray( state.answers ) ).toEqual( true );
     expect( state.answers.length ).toEqual( 0 );
-  });
-
-  test("CATEGORIES are initialized correctly and are being exported", () => {
-    expect( CATEGORIES ).toEqual([
-      { value: 0, max: 15, label: 'web', display: 'Web Dev' }, 
-      { value: 0, max: 15, label: 'ios', display: 'iOS Dev' }, 
-      { value: 0, max: 18, label: 'uiux', display: 'UX Design' }, 
-      { value: 0, max: 19, label: 'qa', display: 'QA' }, 
-      { value: 0, max: 15, label: 'salesforce', display: 'Salesforce' }
-    ]);
   });
 
   test("selectAnswer action creator is being exported", () => {
@@ -87,7 +77,7 @@ describe("Reducer Tests", () => {
     let calculatedState = null;
     let correctValues = [];
 
-    CATEGORIES.forEach( category => {
+    CATEGORY_MAXIMUMS.forEach( category => {
       correctValues.push( 0 );
     });
 

@@ -25,7 +25,7 @@ class Question extends Component {
 
   componentDidMount() {
     const { currentQuestion } = this.state;
-    const { answers, history } = this.props;
+    const { answers, history, hasSubmitted } = this.props;
     
     // User is on question 2 or above and has accidentally refreshed.
     if ( currentQuestion + 1 >= 2 ) {
@@ -33,6 +33,9 @@ class Question extends Component {
         history.push('/');
       }
     }
+
+    // User pressed back button to go to previous question
+    if ( hasSubmitted ) history.push('/');
   }
 
   componentDidUpdate() {
