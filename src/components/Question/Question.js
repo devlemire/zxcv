@@ -25,7 +25,7 @@ class Question extends Component {
 
   componentDidMount() {
     const { currentQuestion } = this.state;
-    const { answers, history, hasSubmitted } = this.props;
+    const { answers, history, hasCompleted, hasSubmitted } = this.props;
     
     // User is on question 2 or above and has accidentally refreshed.
     if ( currentQuestion + 1 >= 2 ) {
@@ -36,6 +36,9 @@ class Question extends Component {
 
     // User pressed back button to go to previous question
     if ( hasSubmitted ) history.push('/');
+
+    // User has already pressed 'Submit Survey'
+    if ( hasCompleted ) history.push('/submit');
   }
 
   componentDidUpdate() {
@@ -93,6 +96,7 @@ class Question extends Component {
 function mapStateToProps( state ) {
   return {
     answers: state.answers,
+    hasCompleted: state.hasCompleted,
     hasSubmitted: state.hasSubmitted
   };
 }

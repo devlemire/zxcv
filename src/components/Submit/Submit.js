@@ -11,9 +11,9 @@ import './Submit.css';
 
 class Submit extends Component {
   componentDidMount() {
-    const { answers, calculateModifiers, history, hasSubmitted } = this.props;
+    const { answers, calculateModifiers, history, hasCompleted, hasSubmitted } = this.props;
 
-    if ( answers.length > 0 && !hasSubmitted ) {
+    if ( answers.length > 0 && !hasCompleted ) {
       calculateModifiers( answers );
     } else if ( answers.length === 0 || hasSubmitted ) {
       // Student accidentally refreshed on submit screen or hit back from the results screen
@@ -35,6 +35,7 @@ class Submit extends Component {
 
     this.handleChange = this.handleChange.bind( this );
     this.submit = this.submit.bind( this );
+    this.anonymous = this.anonymous.bind( this );
   }
 
   handleChange( value ) {
@@ -70,6 +71,13 @@ class Submit extends Component {
     });
   }
 
+  anonymous() {
+    const { history, submitted } = this.props;
+
+    history.push('/results');
+    submitted();
+  }
+
   render() {
     const { error } = this.state;
 
@@ -93,6 +101,10 @@ class Submit extends Component {
               :
                 null
             }
+          </div>
+
+          <div className="Submit__anonymous-container">
+            <button onClick={ this.anonymous }>Submit Anonymously</button>
           </div>
         </div>
       </div>

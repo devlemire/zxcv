@@ -9,6 +9,7 @@ const initialState = {
     { value: 0, max: 19, label: 'qa', display: 'QA' }, 
     { value: 0, max: 15, label: 'salesforce', display: 'Salesforce' } 
   ],
+  hasCompleted: false,
   hasSubmitted: false
 };
 
@@ -54,6 +55,7 @@ export default function reducer( state = initialState, action ) {
         }
       });
       
+      newState.hasCompleted = true;
       return newState;
 
     case RESET:
