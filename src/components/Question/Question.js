@@ -107,5 +107,7 @@ Question.propTypes = {
   answers: PropTypes.array.isRequired,
   history: PropTypes.object.isRequired,
   match: PropTypes.object.isRequired,
-  selectAnswer: PropTypes.func.isRequired
+  selectAnswer: PropTypes.func.isRequired,
+  hasSubmitted: PropTypes.bool.isRequired,
+  hasCompleted: PropTypes.bool.isRequired
 }

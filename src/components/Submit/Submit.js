@@ -117,5 +117,7 @@ export default connect( state => state, { calculateModifiers, submitted } )( Sub
 Submit.propTypes = {
   answers: PropTypes.array.isRequired,
   calculateModifiers: PropTypes.func.isRequired,
-  history: PropTypes.object.isRequired
+  history: PropTypes.object.isRequired,
+  hasSubmitted: PropTypes.bool.isRequired,
+  hasCompleted: PropTypes.bool.isRequired
 }
